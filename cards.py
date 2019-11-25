@@ -45,13 +45,13 @@ class Hand(object):
     elif self.isStraight():
       self.rank = 5
     elif self.isTriple():
-      sekf.rank = 6
+      self.rank = 6
     elif self.istwoPairs():
-
-
-
-
-
+      self.rank = 7
+    elif self.isPair():
+      self.rank = 8
+    else:
+      self.rank = 9
 
 
   def isFlush(self) -> bool:
@@ -95,8 +95,12 @@ class Hand(object):
       return True
     return False   
 
-
-
+def compare(hand1, hand2):
+  if hand1.assignRank() > hand2.assignRank():
+    return 'hand1 win!'
+  elif hand1.assignRank() < hand2.assignRank():
+    return 'hand2 win!'
+  
 y = Card(3,'H')
 z = Card(4,'S')
 print(y>z)
